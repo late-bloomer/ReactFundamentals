@@ -13,7 +13,7 @@ const userDetailData = [
   },
   {
     id: 103,
-    name: "Ruhit",
+    name: "Rumit",
     experience: "40yrs",
   },
   {
@@ -38,7 +38,7 @@ const userReportData = [
   },
   {
     id: 103,
-    name: "Ruhit",
+    name: "Rumit",
     report: "Promoted",
     chart: "Preparing",
   },
