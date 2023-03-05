@@ -13,6 +13,13 @@ import React, {
  * order in which they are written...
  */
 
+/**
+ * 
+ * For proper understanding of useMemo and useCallback, kindly read below webpage
+ * https://www.joshwcomeau.com/react/usememo-and-usecallback/
+ * 
+ */
+
 export default function ReactHooksExample(props) {
   const [counter, setCounter] = useState(0);
   const { textMsg } = props;
@@ -68,7 +75,11 @@ export default function ReactHooksExample(props) {
 
   /**
    * How to get previous props in useEffect.
+   * The useRef Hook can also be used to keep track of previous state or previous props values.
+   * This is because we are able to persist useRef values between renders.
+   * refer - https://www.w3schools.com/react/react_useref.asp
    */
+
   // declare usePrevious hook(It is an example of custom hook..)
   const usePrevious = (value) => {
     const ref = useRef();
@@ -179,6 +190,14 @@ function CustomHooksComponentExample() {
 /**
  * UseMemo Example
  */
+
+/**
+ * 
+ * This:
+ * React.useCallback(function helloWorld(){}, []);
+ * ..Is functionally equivalent to this:
+ * React.useMemo(() => function helloWorld(){}, []);
+ */
 function ExampleUseMemoHook(props) {
   const [timer1, setTimer1] = useState(0);
   const [timer2, setTimer2] = useState(0);
@@ -243,7 +262,7 @@ function ExampleUseCallbackHook(props) {
   const [toggle, setToggle] = useState(true);
 
   function expensiveFunction() {
-    for (let i = 0; i < 300000000; ) {
+    for (let i = 0; i < 30000000; ) {
       i++;
     }
     return "This is really expensive....";

@@ -36,7 +36,9 @@ function App() {
     setColor((color) => (color === "brown" ? "blue" : "brown"));
   }
   return (
-    /* provider is needed at top level to pass data to child... */
+    /**
+     * for routing, refer this - https://codeburst.io/getting-started-with-react-router-5c978f70df91
+     */
     <BrowserRouter>
       {/**
        * Default route
@@ -68,10 +70,11 @@ function App() {
           toggleColor,
         }}
       >
+        {/* provider is needed at top level to pass data to child... */}
         <ColorContext.Provider value="Green">
+          {/* Switch component helps us to render the components only when path matches 
+            otherwise it fallbacks to the not found component. */}
           <Switch>
-            {/* Suspense is for showing fallback component if Home(a lazy component) is
-          taking time for loading. */}
             {/* exact mention in the route means if path match to '/' only navigate..
               read about exact(important-interview question !!!)
           */}
@@ -79,6 +82,8 @@ function App() {
               exact
               path="/"
               component={(props) => (
+                /* Suspense is for showing fallback component if Home(a lazy component) is
+                 taking time for loading. */
                 <Suspense fallback={<div>loading...</div>}>
                   <Home {...props} />
                 </Suspense>

@@ -99,7 +99,7 @@ function InputComponent({ inputData }) {
       <tbody>
         <tr style={{ padding: "16px", float: "left" }}>
           {inputData.data.map((item, index) => (
-            <th key={index}>{item[inputData.header[index]]}</th>
+            <th key={index}>{item[inputData.header[index]]}</th> // it is wrong and plz correct the logic
           ))}
         </tr>
       </tbody>

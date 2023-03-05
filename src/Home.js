@@ -74,7 +74,7 @@ export default class Home extends React.Component {
           <ReactHooksExample textMsg={this.state.textMsg} />
         </ErrorBoundaryComp>
         <ErrorBoundaryComp>
-          <ComponentWhereErrorOccured errorName="error-occured" />
+          <ComponentWhereErrorOccured error="error-occured" />
         </ErrorBoundaryComp>
         <ErrorBoundaryComp>
           <GridInsideGrid />
@@ -112,7 +112,7 @@ export default class Home extends React.Component {
 // }
 
 function ComponentWhereErrorOccured(props) {
-  if (props.errorName === "error-occured") {
+  if (props.error === "error-occured") {
     throw new Error(
       "yes error...Click on right top cancel icon...programe will run..It is the Example of error boundary....Dont worry!!!"
     );
@@ -157,8 +157,7 @@ function Grid(props) {
     );
   };
   return (
-    <div>
-      <div>{renderGrid(gridCount)}</div>
+    <div>{renderGrid(gridCount)}
     </div>
   );
 }
